@@ -53,6 +53,7 @@ class Handler extends ExceptionHandler
         if ($exception instanceof NotFoundHttpException) {
             return response()->json([
                 "msg" => "error",
+                "endpoint" => $request->fullUrl(),
                 "status" => 404,
                 "response" => [
                     "error" => "endpoint not found or is deleted!"

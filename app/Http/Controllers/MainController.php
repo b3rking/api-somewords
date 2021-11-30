@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
@@ -11,10 +12,11 @@ class MainController extends Controller
      * 
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
         return response()->json([
             "status" => 200,
+            "endpoint" => $request->fullUrl(),
             "msg" => "ok",
             "response" => [
                 "app name" => "somewords",
